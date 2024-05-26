@@ -2,7 +2,8 @@
 Playing around with Java's Vector APIs
 
 ## Bytecode
-Documents naive loop vs vectorized bytecode.
+Documents naive loop vs vectorized bytecode. Generate with godbolt, annotated
+with the help of chatgpt.
 ### Array by scalar multiplication
 ```
  void mul(float[], float);
