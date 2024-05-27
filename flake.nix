@@ -6,12 +6,13 @@
   outputs = inputs:
     let
       system = "x86_64-linux";
-      pkgs = inputs.nixpkgs.legacyPackages.${system};
+      overlay = import ./overlays/default.nix;
+      pkgs = (inputs.nixpkgs.legacyPackages.${system}.extend overlay);
     in
     {
       devShell.${system} = pkgs.mkShell rec {
         name = "java-shell";
-        buildInputs = with pkgs; [ jdk21 gradle ];
+        buildInputs = with pkgs; [ jdk22 gradle llvm];
 
         shellHook = ''
           export JAVA_HOME=${pkgs.jdk22}
