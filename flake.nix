@@ -7,8 +7,7 @@
   outputs = inputs:
   let
       system = "x86_64-linux";
-      overlay = import ./overlays/default.nix;
-      pkgs = (inputs.nixpkgs.legacyPackages.${system}.extend overlay);
+      pkgs = inputs.nixpkgs.legacyPackages.${system};
       hsdis-jdk = inputs.hsdis-jdk22.packages.${system}.default;
     in
     {
