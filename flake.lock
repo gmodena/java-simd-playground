@@ -1,12 +1,45 @@
 {
   "nodes": {
+    "hsdis-jdk22": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1718138187,
+        "narHash": "sha256-G/oBoREyTpXmlp5l4z2P92OrLTJ4JDwydZfS9jvtWVc=",
+        "owner": "gmodena",
+        "repo": "hsdis-jdk22",
+        "rev": "33d381ca53a7131df0e9f9622f52a525b4d1d17b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gmodena",
+        "repo": "hsdis-jdk22",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1716358718,
-        "narHash": "sha256-NQbegJb2ZZnAqp2EJhWwTf6DrZXSpA6xZCEq+RGV1r0=",
+        "lastModified": 1716914467,
+        "narHash": "sha256-KkT6YM/yNQqirtYj/frn6RRakliB8RDvGqVGGaNhdcU=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "3f316d2a50699a78afe5e77ca486ad553169061e",
+        "rev": "4a3fc4cf736b7d2d288d7a8bf775ac8d4c0920b4",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "nixpkgs-unstable",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1716715802,
+        "narHash": "sha256-usk0vE7VlxPX8jOavrtpOqphdfqEQpf9lgedlY/r66c=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "e2dd4e18cc1c7314e24154331bae07df76eb582f",
         "type": "github"
       },
       "original": {
@@ -17,7 +50,8 @@
     },
     "root": {
       "inputs": {
-        "nixpkgs": "nixpkgs"
+        "hsdis-jdk22": "hsdis-jdk22",
+        "nixpkgs": "nixpkgs_2"
       }
     }
   },

@@ -2,21 +2,23 @@
   description = "Flake to manage a Java 22 workspace.";
 
   inputs.nixpkgs.url = "nixpkgs/nixpkgs-unstable";
+  inputs.hsdis-jdk22.url = "github:gmodena/hsdis-jdk22";
 
   outputs = inputs:
-    let
+  let
       system = "x86_64-linux";
       overlay = import ./overlays/default.nix;
       pkgs = (inputs.nixpkgs.legacyPackages.${system}.extend overlay);
+      hsdis-jdk = inputs.hsdis-jdk22.packages.${system}.default;
     in
     {
       devShell.${system} = pkgs.mkShell rec {
         name = "java-shell";
-        buildInputs = with pkgs; [ jdk22 gradle llvm];
+        buildInputs = [ hsdis-jdk pkgs.gradle pkgs.llvm];
 
         shellHook = ''
-          export JAVA_HOME=${pkgs.jdk22}
-          PATH="${pkgs.jdk22}/bin:$PATH"
+          export JAVA_HOME=${hsdis-jdk}
+          PATH="${hsdis-jdk}/bin:$PATH"
         '';
       };
     };
